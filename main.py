@@ -105,3 +105,9 @@ async def upload(file: UploadFile = File(...)):
         }
 
     return JSONResponse(content=result)
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    port = int(os.environ.get("PORT", 10000))  # Render環境用
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
